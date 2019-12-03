@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Ticket List</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/ticketlist.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+    <script src='js/jquery.rwdImageMaps.min.js'></script>
+</head>
+
+
+
+<body onload="getTicketList()">
+<nav class="navbar navbar-inverse navbar-static-top " role="navigation" style="background:black">
+    <div class="container">
+        
+
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav nav-pills">
+                <li class="leader">
+                    <a href="ticketlist.html">Ticket List</a>
+                </li>
+                <li class="leader">
+                    <a href="user_tickets.html">Your Tickets</a>
+                </li>
+                <li class="leader">
+                    <a href="signup.html">signup/login</a>
+                </li>
+                <li class="leader">
+                    <a href="pmodify.html">my profile</a>
+                </li>
+                <span>
+<a class="btn" style="font-size:12px;color:#ff3333;" href="logout.html">log out</a>
+</span>
+            </ul>
+        </div>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="alert alert-success text-center">
+        <span><font size="5">Ticket List</font></span>
+    </div>
+    
+    <input type="number" id="ticket_num"  name="quantity" placeholder="How many tickets" max="300" maxlength="30" size="30">
+    <button type="button" class="btn btn-success" id="btn_search" onclick="search_ticket()">Search</button>
+    <div class="row">
+        <div class="col-md-6">
+        <table class="table">
+            <thead>
+            <tr>
+                
+                <td>Section</td>
+                <td>Remaining seats</td>
+                <td>Start row</td>
+                <td>Price</td>
+                <td>Operation</td>
+            </tr>
+            </thead>
+            <tbody id="ticketlist">
+
+            </tbody>
+
+        </table>
+</div>
+<div class="col-md-6">
+    
+    </map>
+    <img src="img/ticketsmap.png" usemap="#image-map"class="map">
+    <script>
+            $(function() {
+            $('.map').maphilight();
+            });
+        </script>
+    <map name="image-map">
+        <area target="" alt="A" title="A" onclick="getDist(this)" coords="102,230,98,210,125,203,149,294,113,311,106,326,34,315,45,278,74,246" shape="poly">
+        <area target="" alt="B" title="B" onclick="getDist(this)" coords="126,202,146,193,175,188,194,284,172,291,149,294" shape="poly">
+        <area target="" alt="C" title="C" onclick="getDist(this)" coords="177,188,223,183,234,279,194,286" shape="poly">
+        <area target="" alt="D" title="D" onclick="getDist(this)" coords="224,182,271,178,277,276,235,280" shape="poly">
+        <area target="" alt="E" title="E" onclick="getDist(this)" coords="272,178,320,178,322,276,277,277" shape="poly">
+        <area target="" alt="F" title="F" onclick="getDist(this)" coords="319,176,372,179,366,279,321,275" shape="poly">
+        <area target="" alt="G" title="G" onclick="getDist(this)" coords="372,177,416,181,408,279,366,277" shape="poly">
+        <area target="" alt="H" title="H" onclick="getDist(this)" coords="418,181,467,188,450,285,408,280" shape="poly">
+        <area target="" alt="I" title="I" onclick="getDist(this)" coords="467,187,515,197,494,293,449,283" shape="poly">
+        <area target="" alt="J" title="J" onclick="getDist(this)" coords="591,214,630,254,616,261,595,239,551,289,534,274,523,306,496,293,518,200,545,208,582,224" shape="poly">
+        <area target="" alt="K" title="K" onclick="getDist(this)" coords="112,484,126,492,148,500,126,594,102,587,109,558,89,548,85,557,56,531,40,505,33,480,110,471" shape="poly">
+        <area target="" alt="L" title="L" onclick="getDist(this)" coords="149,499,194,511,178,607,128,595" shape="poly">
+        <area target="" alt="M" title="M" onclick="getDist(this)" coords="196,509,233,514,225,613,179,606" shape="poly">
+        <area target="" alt="N" title="N" onclick="getDist(this)" coords="235,514,277,519,274,616,225,612" shape="poly">
+        <area target="" alt="O" title="O" onclick="getDist(this)" coords="278,517,322,521,322,616,273,617" shape="poly">
+        <area target="" alt="P" title="P" onclick="getDist(this)" coords="321,520,364,519,373,616,322,616" shape="poly">
+        <area target="" alt="Q" title="Q" onclick="getDist(this)" coords="365,518,407,514,420,612,372,618" shape="poly">
+        <area target="" alt="R" title="R" onclick="getDist(this)" coords="408,514,450,508,469,605,420,612" shape="poly">
+        <area target="" alt="S" title="S" onclick="getDist(this)" coords="452,510,494,502,518,597,468,607" shape="poly">
+        <area target="" alt="T" title="T" onclick="getDist(this)" coords="496,498,524,489,532,521,551,506,607,552,625,523,641,532,609,573,594,565,564,581,520,595" shape="poly">
+        <area target="" alt="TDA" title="TDA" onclick="getDist(this)" coords="57,64,93,54,106,111,73,119" shape="poly">
+        <area target="" alt="TDB" title="TDB" onclick="getDist(this)" coords="93,53,143,41,157,100,134,105,132,98,117,100,118,106,107,109" shape="poly">
+        <area target="" alt="TDC" title="TDC" onclick="getDist(this)" coords="157,99,172,96,171,90,185,88,186,94,211,92,204,32,144,40" shape="poly">
+        <area target="" alt="TDD" title="TDD" onclick="getDist(this)" coords="205,31,267,24,269,85,241,87,227,83,226,89,213,89" shape="poly">
+        <area target="" alt="TDE" title="TDE" onclick="getDist(this)" coords="268,25,326,23,328,84,298,84,298,78,286,78,285,85,269,84" shape="poly">
+        <area target="" alt="TDF" title="TDF" onclick="getDist(this)" coords="329,23,387,27,384,84,356,84,355,77,341,78,341,84,327,82" shape="poly">
+        <area target="" alt="TDG" title="TDG" onclick="getDist(this)" coords="388,25,446,32,439,89,413,88,413,81,400,81,400,86,384,85" shape="poly">
+        <area target="" alt="TDH" title="TDH" onclick="getDist(this)" coords="439,90,452,91,455,85,468,89,467,94,492,99,502,42,445,29" shape="poly">
+        <area target="" alt="TDI" title="TDI" onclick="getDist(this)" coords="505,40,558,55,544,110,520,105,522,99,508,96,506,102,494,99" shape="poly">
+        <area target="" alt="TDJ" title="TDJ" onclick="getDist(this)" coords="558,54,595,68,576,121,545,111" shape="poly">
+        <area target="" alt="TDK" title="TDK" onclick="getDist(this)" coords="59,673,109,687,94,743,44,730" shape="poly">
+        <area target="" alt="TDL" title="TDL" onclick="getDist(this)" coords="110,685,121,686,120,694,133,696,134,689,160,696,152,753,97,744" shape="poly">
+        <area target="" alt="TDM" title="TDM" onclick="getDist(this)" coords="163,695,174,695,174,704,189,705,188,697,217,702,209,760,151,753" shape="poly">
+        <area target="" alt="TDN" title="TDN" onclick="getDist(this)" coords="217,702,229,702,231,709,242,710,244,702,275,707,271,765,209,761" shape="poly">
+        <area target="" alt="TDO" title="TDO" onclick="getDist(this)" coords="275,705,288,707,288,712,302,714,303,705,330,707,331,766,273,765" shape="poly">
+        <area target="" alt="TDP" title="TDP" onclick="getDist(this)" coords="330,706,346,705,346,711,358,712,358,706,385,706,389,765,330,766" shape="poly">
+        <area target="" alt="TDQ" title="TDQ" onclick="getDist(this)" coords="385,704,404,702,404,708,418,709,418,703,442,701,451,760,389,764" shape="poly">
+        <area target="" alt="TDR" title="TDR" onclick="getDist(this)" coords="444,699,457,696,458,704,471,702,469,695,492,692,505,750,450,758" shape="poly">
+        <area target="" alt="TDS" title="TDS" onclick="getDist(this)" coords="495,694,511,687,512,694,523,691,524,685,546,681,565,737,505,750" shape="poly">
+        <area target="" alt="TDT" title="TDT" onclick="getDist(this)" coords="547,680,561,676,563,682,576,679,572,671,591,666,612,722,565,736" shape="poly">
+        <area target="" alt="UA" title="UA" onclick="getDist(this)" coords="81,153,117,142,132,194,97,203" shape="poly">
+        <area target="" alt="UB" title="UB" onclick="getDist(this)" coords="117,140,172,129,181,184,158,188,155,182,140,184,142,191,132,192" shape="poly">
+        <area target="" alt="UC" title="UC" onclick="getDist(this)" coords="172,128,221,121,228,175,207,179,206,175,190,175,190,181,181,181" shape="poly">
+        <area target="" alt="UD" title="UD" onclick="getDist(this)" coords="222,122,273,117,276,171,253,174,253,168,237,170,238,176,228,175" shape="poly">
+        <area target="" alt="UE" title="UE" onclick="getDist(this)" coords="276,173,291,172,289,164,305,164,306,171,328,170,327,116,273,117" shape="poly">
+        <area target="" alt="UF" title="UF" onclick="getDist(this)" coords="328,116,379,117,377,173,353,172,355,166,338,165,338,172,327,171" shape="poly">
+        <area target="" alt="UG" title="UG" onclick="getDist(this)" coords="380,117,432,121,425,175,402,174,402,168,389,167,387,173,377,172" shape="poly">
+        <area target="" alt="UH" title="UH" onclick="getDist(this)" coords="433,122,484,130,474,182,452,180,454,174,437,171,436,179,425,175" shape="poly">
+        <area target="" alt="UI" title="UI" onclick="getDist(this)" coords="486,132,534,143,523,194,498,190,502,183,485,180,484,186,473,183" shape="poly">
+        <area target="" alt="UJ" title="UJ" onclick="getDist(this)" coords="536,143,568,153,550,202,523,193" shape="poly">
+        <area target="" alt="UK" title="UK" onclick="getDist(this)" coords="91,556,104,560,93,600,105,603,109,596,132,604,119,654,68,642" shape="poly">
+        <area target="" alt="UL" title="UL" onclick="getDist(this)" coords="134,605,143,605,142,612,157,615,159,608,182,614,173,665,121,654" shape="poly">
+        <area target="" alt="UM" title="UM" onclick="getDist(this)" coords="183,614,200,615,199,622,207,623,209,616,229,619,224,672,175,666" shape="poly">
+        <area target="" alt="UN" title="UN" onclick="getDist(this)" coords="230,620,241,619,241,627,254,626,256,620,277,623,276,675,225,671" shape="poly">
+        <area target="" alt="UO" title="UO" onclick="getDist(this)" coords="278,624,291,622,291,630,307,629,306,624,330,623,329,676,274,676" shape="poly">
+        <area target="" alt="UP" title="UP" onclick="getDist(this)" coords="329,622,341,622,342,629,357,629,356,622,377,622,382,673,330,676" shape="poly">
+        <area target="" alt="UQ" title="UQ" onclick="getDist(this)" coords="378,622,389,620,389,627,404,624,406,619,428,618,434,671,383,675" shape="poly">
+        <area target="" alt="UR" title="UR" onclick="getDist(this)" coords="428,617,441,614,441,620,455,619,454,613,475,609,488,661,435,669" shape="poly">
+        <area target="" alt="US" title="US" onclick="getDist(this)" coords="476,610,487,606,489,614,502,611,500,605,524,599,539,649,488,660" shape="poly">
+        <area target="" alt="UT" title="UT" onclick="getDist(this)" coords="524,600,540,594,541,601,554,595,553,589,566,585,581,635,538,649" shape="poly">
+        <area target="" alt="V" title="V" onclick="getDist(this)" coords="604,550,624,523,642,532,651,516,655,496,670,498,673,465,535,451,532,478,565,486,553,505" shape="poly">
+        <area target="" alt="W" title="W" onclick="getDist(this)" coords="535,394,672,396,673,464,535,451" shape="poly">
+        <area target="" alt="X" title="X" onclick="getDist(this)" coords="532,341,670,324,673,393,537,393" shape="poly">
+        <area target="" alt="Y" title="Y" onclick="getDist(this)" coords="527,312,563,304,549,289,596,240,616,263,629,255,646,289,663,291,668,323,532,339" shape="poly">
+    </map>
+</div>
+</div>
+</div>
+$('img[usemap]').rwdImageMaps();
+</body>
+</html>

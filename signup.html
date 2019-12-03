@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script language="javascript" type="text/javascript" src="js/login.js"></script>
+    <link href="css/login.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<form>
+    <table width="202" border="0" align="center" cellpadding="05" cellspacing="0" id="logintable">
+        <tr>
+            <td width="192">
+                <div class="message" align="center"><font size="6">Sign Up </font></div>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="login.html">Already have account...</a></td>
+        </tr>
+        
+        <tr>
+            <td width="10">
+                <div class="message">Username *:</div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"><input name="name" type="text" id="username" value="" placeholder="username"></td>
+        </tr>
+
+        <tr>
+            <td width="10">
+                <div class="message">Password *:</div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"><input name="psd" type="password" id="password" value="" placeholder="password"></td>
+        </tr>
+
+        <tr>
+            <td width="10">
+                <div class="message">Repeat-Password *:</div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"><input name="psd1" type="password" id="password1" value="" placeholder="re-password">
+            </td>
+        </tr>
+
+        <tr>
+            <td width="10">
+                <div class="message">Email *:</div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"><input name="emil" type="text" id="email" value="" placeholder="email"></td>
+        </tr>
+
+        <tr>
+            <td id="tip"> </td>
+        </tr>
+        <tr>
+            <td align="center"><input type="button" class="submit" value="Sign Up"
+                                      style="height: 50px;width: 100px;background-color: cornflowerblue;font-size: large;"
+                                      onclick="signup()"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
